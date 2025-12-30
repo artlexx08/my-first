@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Range Display</title>
+</head>
+<body>
+    <h1>Enter Number Range</h1>
+    <label for="first">First number:</label>
+    <input type="number" id="first" required><br><br>
+    <label for="last">Last number:</label>
+    <input type="number" id="last" required><br><br>
+    <button onclick="displayNumbers()">Display Numbers</button>
+    <div id="output"></div>
+
+    <script>
+        function displayNumbers() {
+            const first = parseInt(document.getElementById('first').value);
+            const last = parseInt(document.getElementById('last').value);
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+
+            if (isNaN(first) || isNaN(last) || first > last) {
+                output.innerHTML = 'Please enter valid numbers where first <= last.';
+                return;
+            }
+
+            for (let i = first; i <= last; i++) {
+                output.innerHTML += i + '<br>';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
